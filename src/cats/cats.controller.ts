@@ -5,6 +5,7 @@ import { CreateCatDto } from './cats_dto/create_cat.dto';
 @Controller('cats')
 export class CatsController {
   constructor(private service: CatsService) {}
+
   @Get()
   catList() {
     return this.service.getCatList();
