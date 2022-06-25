@@ -1,6 +1,6 @@
 import { IsString, IsEmail } from 'class-validator';
 
-class CreateCatDto {
+export class CreateCatDto {
   @IsString()
   name: string;
   @IsEmail()
