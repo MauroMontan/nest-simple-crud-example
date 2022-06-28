@@ -6,3 +6,10 @@ export class CreateCatDto {
   @IsEmail()
   owner_email: string;
 }
+
+export class UpdateCatDto {
+  @IsString()
+  name: string;
+  @IsEmail()
+  owner_email: string;
+}

@@ -15,7 +15,7 @@ import { Cat } from './cats/entities/cat.entity';
       password: '12345',
       database: 'nestjs',
       entities: [Cat],
-      synchronize: false,
+      synchronize: true,
     }),
     CatsModule,
   ],
