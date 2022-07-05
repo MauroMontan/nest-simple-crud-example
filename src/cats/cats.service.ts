@@ -6,7 +6,7 @@ import { Cat } from './entities/cat.entity';
 
 @Injectable()
 export class CatsService {
-  constructor(@InjectRepository(Cat) private userRepository: Repository<Cat>) {}
+  constructor(@InjectRepository(Cat) private userRepository: Repository<Cat>) { }
 
   getList(): Promise<Cat[]> {
     return this.userRepository.find();

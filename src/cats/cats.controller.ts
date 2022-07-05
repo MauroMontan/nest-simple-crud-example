@@ -14,7 +14,7 @@ import { CreateCatDto, UpdateCatDto } from './cats_dto/create_cat.dto';
 
 @Controller('cats')
 export class CatsController {
-  constructor(private service: CatsService) {}
+  constructor(private service: CatsService) { }
 
   @Get()
   catList() {
