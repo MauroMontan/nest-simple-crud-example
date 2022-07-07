@@ -8,3 +8,10 @@ export class SignInDto {
   password: string;
 }
 
+
+export class SignInResponseDto {
+  @IsEmail()
+  email: string;
+
+}
+
