@@ -19,7 +19,7 @@ export class AuthController {
   @UseGuards(AuthGuard("local"))
   @Post('/signin')
   async signin(@Body() user: SignInDto) {
-    return user;
+    return this.service.signin(user);
   }
 
 }

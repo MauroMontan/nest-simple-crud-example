@@ -3,7 +3,6 @@ import { CreateCatDto, UpdateCatDto } from './cats_dto/create_cat.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cat } from './entities/cat.entity';
-import { SignInDto } from 'src/auth/user_dto/signin.dto';
 
 @Injectable()
 export class CatsService {

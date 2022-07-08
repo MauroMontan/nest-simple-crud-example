@@ -7,7 +7,9 @@ import {
   ParseIntPipe,
   Delete,
   Patch,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 import { CatsService } from './cats.service';
 import { CreateCatDto, UpdateCatDto } from './cats_dto/create_cat.dto';
@@ -16,6 +18,8 @@ import { CreateCatDto, UpdateCatDto } from './cats_dto/create_cat.dto';
 export class CatsController {
   constructor(private service: CatsService) { }
 
+
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   catList() {
     return this.service.getList();
