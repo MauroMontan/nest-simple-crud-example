@@ -8,16 +8,19 @@ import { SignUpDto } from './user_dto/signup.dto';
 
 @Injectable()
 export class AuthService {
-
-  constructor(@InjectRepository(User) private userRepository: Repository<User>, private jwtService: JwtService) { }
+  constructor(
+    @InjectRepository(User) private userRepository: Repository<User>,
+    private jwtService: JwtService,
+  ) {}
 
   signup(user: SignUpDto) {
     return this.userRepository.save(user);
   }
 
-
-  async validateUser(email: string, password: string): Promise<SignInResponseDto> {
-
+  async validateUser(
+    email: string,
+    password: string,
+  ): Promise<SignInResponseDto> {
     const user = await this.userRepository.findOne({ where: { email: email } });
 
     if (user && password === user.password) {
@@ -34,7 +37,4 @@ export class AuthService {
       access_token: this.jwtService.sign(payload),
     };
   }
-
-
-
 }

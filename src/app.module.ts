@@ -23,4 +23,4 @@ import { User } from './auth/entities/user.entity';
     AuthModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}
