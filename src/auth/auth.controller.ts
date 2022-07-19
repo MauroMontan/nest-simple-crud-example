@@ -6,7 +6,7 @@ import { SignUpDto } from './user_dto/signup.dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private service: AuthService) {}
+  constructor(private service: AuthService) { }
 
   @Post('/signup')
   signup(@Body() user: SignUpDto) {

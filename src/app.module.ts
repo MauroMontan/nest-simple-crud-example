@@ -2,9 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CatsModule } from './cats/cats.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Cat } from './cats/entities/cat.entity';
 import { AuthModule } from './auth/auth.module';
-import { User } from './auth/entities/user.entity';
 
 @Module({
   imports: [
@@ -16,11 +14,11 @@ import { User } from './auth/entities/user.entity';
       username: 'postgres',
       password: '12345',
       database: 'nestjs',
-      entities: [Cat, User],
+      autoLoadEntities: true,
       synchronize: true,
     }),
     CatsModule,
     AuthModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }

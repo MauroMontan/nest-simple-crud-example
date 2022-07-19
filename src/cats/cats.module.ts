@@ -9,4 +9,4 @@ import { Cat } from './entities/cat.entity';
   controllers: [CatsController],
   imports: [TypeOrmModule.forFeature([Cat])],
 })
-export class CatsModule {}
+export class CatsModule { }
