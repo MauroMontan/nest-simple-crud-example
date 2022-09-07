@@ -1,10 +1,12 @@
-import { IsString, IsEmail } from 'class-validator';
+import { IsString, IsEmail, IsNumber } from 'class-validator';
 
 export class CreateCatDto {
   @IsString()
   name: string;
   @IsEmail()
   owner_email: string;
+  @IsNumber()
+  userId: number;
 }
 
 export class UpdateCatDto {
@@ -12,4 +14,7 @@ export class UpdateCatDto {
   name: string;
   @IsEmail()
   owner_email: string;
+
+  @IsNumber()
+  userId: number;
 }

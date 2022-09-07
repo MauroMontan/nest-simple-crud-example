@@ -14,9 +14,11 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async signup(user: SignUpDto) {
+  async signup(user: User) {
     user.password = await hash(user.password);
-
+    user.cats.forEach((cat) => {
+      cat.id = user.id;
+    });
     return this.userRepository.save(user);
   }
 

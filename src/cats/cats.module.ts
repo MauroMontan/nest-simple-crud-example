@@ -6,8 +6,8 @@ import { Cat } from './entities/cat.entity';
 import { JwtStrategy } from 'src/auth/strategy/jwt.strategy';
 
 @Module({
-  providers: [CatsService],
+  providers: [CatsService, JwtStrategy],
   controllers: [CatsController],
-  imports: [TypeOrmModule.forFeature([Cat]), JwtStrategy],
+  imports: [TypeOrmModule.forFeature([Cat])],
 })
 export class CatsModule {}

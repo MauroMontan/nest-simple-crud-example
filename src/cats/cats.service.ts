@@ -9,7 +9,17 @@ export class CatsService {
   constructor(@InjectRepository(Cat) private userRepository: Repository<Cat>) {}
 
   getList(): Promise<Cat[]> {
-    return this.userRepository.find();
+    return this.userRepository.find({
+      relations: {
+        owner: true,
+      },
+      select: {
+        owner: {
+          email: true,
+          username: true,
+        },
+      },
+    });
   }
 
   create(cat: CreateCatDto) {

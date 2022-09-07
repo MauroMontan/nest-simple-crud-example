@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from 'src/auth/entities/user.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class Cat {
@@ -6,8 +13,9 @@ export class Cat {
   id: number;
 
   @Column()
-  owner_email: string;
-
-  @Column()
   name: string;
+
+  @ManyToOne(() => User, (user: User) => user.cats)
+  @JoinColumn({ name: 'user_id' })
+  owner: User;
 }
