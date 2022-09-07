@@ -5,7 +5,6 @@ import { Repository } from 'typeorm';
 import { hash, verify } from 'argon2';
 import { User } from './entities/user.entity';
 import { SignInResponseDto } from './user_dto/signin.dto';
-import { SignUpDto } from './user_dto/signup.dto';
 
 @Injectable()
 export class AuthService {

@@ -1,12 +1,31 @@
 version: '3.8'
 services:
+  nest-app:
+    build: .
+    ports:
+      - "3000:3000"
+    restart: always 
+    depends_on:
+       - dev-db
+
+    networks:
+      nest-network:
+        ipv4_address: "192.168.92.21"
+
   dev-db:
     image: postgres:latest
-    ports:
-      - 5434:5432
-    
     restart: always
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=12345
       - POSTGRES_DB=nestjs
+    networks:
+      nest-network:
+        ipv4_address: "192.168.92.20" 
+
+networks:
+  nest-network:
+    ipam:
+      driver: default 
+      config: 
+        - subnet: "192.168.92.0/24"

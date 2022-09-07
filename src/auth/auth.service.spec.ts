@@ -7,15 +7,17 @@ describe('AuthService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [AuthService],
-    }).overrideProvider(AuthService).useValue({
-      signup: jest.fn(dto => {
-
-        return {
-          id: Date.now(),
-          ...dto
-        }
+    })
+      .overrideProvider(AuthService)
+      .useValue({
+        signup: jest.fn((dto) => {
+          return {
+            id: Date.now(),
+            ...dto,
+          };
+        }),
       })
-    }).compile();
+      .compile();
 
     service = module.get<AuthService>(AuthService);
   });
@@ -24,14 +26,18 @@ describe('AuthService', () => {
     expect(service).toBeDefined();
   });
 
-
-  it("should create a new user", () => {
-    expect(service.signup({ email: "miguel@gmail.com", password: "54321", username: "Helado" })).toEqual({
+  it('should create a new user', () => {
+    expect(
+      service.signup({
+        email: 'miguel@gmail.com',
+        password: '54321',
+        username: 'Helado',
+      }),
+    ).toEqual({
       id: expect.any(Number),
-      email: "miguel@gmail.com",
-      password: "54321",
-      username: "Helado"
+      email: 'miguel@gmail.com',
+      password: '54321',
+      username: 'Helado',
     });
   });
-
 });

@@ -10,8 +10,8 @@ import { UsersModule } from './users/users.module';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5434,
+      host: '192.168.92.20',
+      port: 5432,
       username: 'postgres',
       password: '12345',
       database: 'nestjs',
