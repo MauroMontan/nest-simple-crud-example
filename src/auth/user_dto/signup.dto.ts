@@ -1,4 +1,6 @@
 import { IsString, IsEmail } from 'class-validator';
+import { Cat } from 'src/cats/entities/cat.entity';
+import { OneToOne } from 'typeorm';
 
 export class SignUpDto {
   @IsString()
@@ -9,4 +11,7 @@ export class SignUpDto {
 
   @IsString()
   password: string;
+
+  @OneToOne(() => Cat)
+  cats: Cat[];
 }
